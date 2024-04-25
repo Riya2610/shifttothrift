@@ -1,0 +1,65 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('new.png'); /* Replace with your background image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #04d0f4;
+}
+
+.login {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+}
+
+.login h1 {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif; /* Change the font to Times New Roman */
+    background-color: #88dada;
+    color: rgb(224, 238, 238);
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #041617;
+    border-radius: 3px;
+}
+
+.login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #568f8f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login a {
+    color: #010707;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}

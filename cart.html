@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="carts.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Shift to Thrift</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="center">Your Shopping Cart</h1>
+
+    <div id="cart-items">
+        <!-- Cart items will be displayed here dynamically using JavaScript -->
+    </div>
+    <div class="center">
+
+        <h3>Total Price: <span id="total-price">Rs 0</span></h3>
+    
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <script>
+        // Function to display cart items from localStorage
+        function displayCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+
+            if (!cartItems || cartItems.length === 0) {
+                document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                const cartContainer = document.getElementById('cart-items');
+                cartContainer.innerHTML = '';
+
+                cartItems.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.innerHTML = `
+                        <p>Product Name: ${item.name}</p>
+                        <p>Product Price: Rs${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <button onclick="removeItem(${item.id})">Remove from Cart</button>
+                    `;
+                    cartContainer.appendChild(itemDiv);
+                });
+
+                // Calculate and display the total price
+                calculateTotalPrice(cartItems);
+            }
+        }
+
+        // Function to calculate and display the total price
+        function calculateTotalPrice(cartItems) {
+            let totalPrice = 0;
+            cartItems.forEach(item => {
+                totalPrice += item.price * item.quantity;
+            });
+            document.getElementById('total-price').textContent = 'Rs ' + totalPrice.toFixed(2);
+        }
+
+        // Function to add a product to the cart
+        function addToCart(productId, productName, productPrice) {
+            // Fetch product details from the database using an AJAX request
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const productDetails = JSON.parse(xhr.responseText);
+                    if (productDetails) {
+                        // Get the cart items from localStorage or initialize an empty array
+                        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                        // Check if the product is already in the cart
+                        const existingProduct = cartItems.find(item => item.id === productId);
+
+                        if (existingProduct) {
+                            existingProduct.quantity++;
+                        } else {
+                            cartItems.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                        }
+
+                        // Update the cart in localStorage
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                        alert('Product added to cart!');
+
+                        // Refresh the displayed cart items and total price
+                        displayCartItems();
+                    } else {
+                        alert('Product not found.');
+                    }
+                }
+            };
+
+            xhr.open('GET', `get_product_details.php?id=${productId}`, true);
+            xhr.send();
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(productId) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+
+            // Find the index of the product with the given ID in the cart
+            const index = cartItems.findIndex(item => item.id === productId);
+
+            if (index !== -1) {
+                // Remove the item from the cart
+                cartItems.splice(index, 1);
+                // Update the cart in localStorage
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                // Refresh the displayed cart items and total price
+                displayCartItems();
+            }
+        }
+
+        // Function to place the order (you can customize this further)
+        function placeOrder() {
+            // Perform any actions needed to place the order
+            alert('Order process start!'); // Replace with your order processing code
+            // Redirect to order.html
+            window.location.href = 'order.html';
+            // Clear the cart after placing the order
+            localStorage.removeItem('cartItems');
+            // Refresh the displayed cart items and total price
+            displayCartItems();
+        }
+
+        // Call the function to display cart items when the page loads
+        displayCartItems();
+    </script>
+</body>
+</html>

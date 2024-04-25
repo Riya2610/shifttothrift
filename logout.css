@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('new.png'); /* Replace with your background image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    text-align: center;
+    color: #fff;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center horizontally */
+    font-size: 30px; /* Adjust the font size as needed */
+}
+/* Add this CSS rule to change the login link color */
+.container a {
+    color: turquoise; /* Change the color to turquoise */
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+

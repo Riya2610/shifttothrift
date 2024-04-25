@@ -1,0 +1,25 @@
+/* dashboard.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('buy.png'); /* Replace with your background image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #100000;
+}
+
+/* Define styles for your container */
+.container {
+   
+    
+    padding: 20px; /* Padding inside the container */
+    border-radius: 5px; /* Rounded corners for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container horizontally on the page */
+    text-align: center; /* Center the content inside the container */
+    /* Add more custom styles here */
+}
+

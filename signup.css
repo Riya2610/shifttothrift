@@ -1,0 +1,91 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('new.png'); /* Replace with your background image path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #000000;
+}
+
+header {
+    background-color: #80b3b3;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+
+.signup {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #fdf9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+}
+
+.signup h1 {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #80b3b3;
+    color: rgb(246, 243, 243);
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.signup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.signup input[type="text"],
+.signup input[type="tel"],
+.signup input[type="email"],
+.signup input[type="password"],
+.signup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
+.signup select {
+    appearance: none; /* Remove default arrow on select */
+}
+
+.signup button {
+    width: 100%;
+    padding: 10px;
+    background-color: #568f8f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.signup a {
+    color: #044646;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Style the error message for invalid inputs */
+.signup input:invalid {
+    border-color: red;
+}
+
+.signup input:invalid + label::after {
+    content: ' ';
+    color: red;
+}
