@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift to Thrift - Review and Feedback</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Shift to Thrift</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="buydashboard.php">Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sell.html">Sell</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <h2>Review and Feedback</h2>
+        <p>We value your feedback. Please share your experience with us.</p>
+        
+        <form id="reviewForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select class="form-control" id="rating" required>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="feedback">Feedback:</label>
+                <textarea class="form-control" id="feedback" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="media">Upload Media (Optional):</label>
+                <input type="file" class="form-control-file" id="media" name="media">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+    
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container text-center">
+            <p>&copy; 2023 Shift to Thrift. All rights reserved.</p>
+            <p>
+                <a href="contact.html">Contact Us <br> Email: contact@shifttothrift.com<br>
+                Phone: +1 (123) 456-7890<br>  Address: Symbiosis Institute of Computer Studies and Research</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        const reviewForm = document.getElementById('reviewForm');
+
+        reviewForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const rating = document.getElementById('rating').value;
+            const feedback = document.getElementById('feedback').value;
+            const mediaFile = document.getElementById('media').files[0]; // Get the selected file
+
+            // Handle storing the review data and media file or sending it to the backend
+
+            alert('Thank you for your feedback!'); // You can replace this with your actual handling code
+        });
+    </script>
+</body>
+</html>

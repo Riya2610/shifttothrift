@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell - Shift to Thrift</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+<header class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Shift to Thrift</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        
+                    <a class="nav-link" href="about.html">Home</a>
+                </li>
+               
+                <li class="nav-item">
+                        <a class="nav-link" href="buydashboard.php">Buy</a>
+                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sell.html">Sell</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.html">Logout</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+   </header>
+
+        
+        
+        <div class="container mt-5">
+            <h2>WELCOME TO THE SELL PAGE</h2>
+            <p>List your products for sale here.</p>
+            
+            <!-- Product Listing Form -->
+<form id="product-listing-form" method="post" action="sell.php" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="product-name">Product Name</label>
+        <input type="text" class="form-control" id="product-name" name="product-name" required>
+    </div>
+    <div class="form-group">
+        <label for="mobile-number">Mobile Number</label>
+        <input type="tel" class="form-control" id="mobile-number" name="mobile-number" required pattern="[0-9]{10}">
+        <!-- The pattern attribute enforces a 10-digit numeric mobile number -->
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="product-details">Product Details</label>
+        <textarea class="form-control" id="product-details" name="product-details" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="product-category">Product Category</label>
+        <select class="form-control" id="product-category" name="product-category" required>
+            <option value="">Select Category</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="boys">Boys</option>
+            <option value="girls">Girls</option>
+            <option value="kids">Kids</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="product-price">Product Price</label>
+        <input type="number" class="form-control" id="product-price" name="product-price" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="product-image">Product Image</label>
+        <input type="file" class="form-control-file" id="product-image" name="product-image" accept="image/*">
+    </div>
+   
+    <button id="submit-listing-button" class="btn btn-primary">UPLOAD</button>
+</form>
+
+        </div>
+    
+    <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container text-center">
+            <p>&copy; 2023 Shift to Thrift. All rights reserved.</p>
+            <p><a href="contact.html">Contact Us <br> Email: contact@shifttothrift.com<br>
+                Phone: +1 (123) 456-7890<br>  Address: Symbiosis Institute of Computer Studies and Research</a></p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
